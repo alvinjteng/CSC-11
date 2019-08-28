@@ -1,3 +1,23 @@
 Why comuter architecture and assembly language?
--to work with the computer at the chip level (CPU)
--we can take advantage of cpu features that high level compilers often disregard.
+- to work with the computer at the chip level (CPU)
+- we can take advantage of cpu features that high level compilers often disregard.
+1. work with code at bit level for performance increase. (5% to 200%+) 
+  - upgrades as little at 0.5% could be worth it depending on what for, for example video games it would be.
+
+CPU:
+1. Fetch instruction (machine code byte code)
+2. Decode the byte code.
+  a. sets up the cpu to perform the action required by particular instruction.
+3. Execute the instruction.
+4. Write data back if needed.
+
+Intel:
+(A = accumulator) AX <-- 16 bits, AL, AH, EAX (extented accumulator), RAX\
+(B = base) BX, BL, BH, EBX, RBX\
+CA, CL, CH, ECX, RCX\
+DX, DL, DH, EDX, RDX\
+SI (source index), DI (destination index) EDI, RDI, RSI, RDI\
+XMM0-XMM31\
+
+ARM CPI:
+R0 - R15 <-- 32 bits
