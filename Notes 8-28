@@ -11,7 +11,7 @@ CPU:
 3. Execute the instruction.
 4. Write data back if needed.
 
-Intel:
+Intel:\
 (A = accumulator) AX <-- 16 bits, AL, AH, EAX (extented accumulator), RAX\
 (B = base) BX, BL, BH, EBX, RBX\
 CA, CL, CH, ECX, RCX\
@@ -19,5 +19,26 @@ DX, DL, DH, EDX, RDX\
 SI (source index), DI (destination index) EDI, RDI, RSI, RDI\
 XMM0-XMM31\
 
-ARM CPI:
-R0 - R15 <-- 32 bits
+ARM CPI:\
+R0 - R15 <-- 32 bits\
+S0 - S31 <-- 32 bit floats\
+D0 - d15 <-- 64 bit floats\
+
+128 bit registers for super scalar prog
+-------------------------------
+int a[4] = {1,2,3,4};
+int b[4] = {10, 20, 30, 40};
+int c[4];
+
+for (int i = 0; i <3; i++)
+  c[i] = a[i]+b[i];
+-------------------------------
+    ---------------------
+X0: | 1  |  2 |  3 |  4 |
+    ---------------------
+X1: | 10 | 20 | 30 | 40 |
+    ---------------------
+X2: | 11 | 22 | 33 | 44 |
+    ---------------------
+    
+*Careful with R15*
