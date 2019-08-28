@@ -1,0 +1,3 @@
+Why comuter architecture and assembly language?
+-to work with the computer at the chip level (CPU)
+-we can take advantage of cpu features that high level compilers often disregard.
