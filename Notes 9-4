@@ -1,0 +1,35 @@
+Von Neumann Architecture
+
+Stored Program Computer Concept
+- 1943: ENIAC
+  - hard-wired program -- settings of dials, tube and switches
+- 1944: Beginning of EDVAC
+  - included program stored in memory.
+- 1945: John von Neuman
+- The basic structure proposed in the draft became known as the von Neumann machine.
+  - a memory, containing instructions and data
+  - a processing unit, for performing arithmetic and logical operations.
+  - a control unit, for interpreting instructions.
+  
+Basic Von Neumann Architecture
+- ALU: Arithmatic Logic Unit
+- TEMP: Temporary memory on the chip.
+  - Registers
+    - L1 Cache
+    - L2 Cache
+    - L3 Cache * Some CPUs have these
+    - RAM(random access memory)/ROM(read-only memory)
+    - Secondary storage
+- PC: Program Counter (pointer to next intersection in memory)
+- IR: Instruction Register
+- MAR: Memory Address Register - holds address to a memory CPU
+- MDR: Memory Data Register - holds data to read of write to memory
+
+- To read a locations (A):
+  1. Write the address (A) into MAR.
+  2. Send a "read" signal to the memory.
+  3. Read the data from MDR.
+- To write a value (X) to a location (A):
+  1. write the data(X) to the MDR.
+  2. Write the address (A) into the MAR.
+  3. Send a "write" signal to the memory.
