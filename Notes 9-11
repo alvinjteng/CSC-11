@@ -14,7 +14,7 @@ Intro to Number Systems
  b=16: Hexadecimal (hex) : digits = {0,1,...,8,9,A,B,C,D,E,*F*}
   - A = 11 | B = 11 | C = 12 | D = 13 | E = 14 | F = 15|
   
-Binary Addition\
+Binary Addition
 0_2 + 0_2 = 0_2
 0_2 + 1_2 = 1_2
 1_2 + 1_2 = 10_2
