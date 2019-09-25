@@ -37,4 +37,9 @@ CMP reg1,reg2  ----> ALU does behind scenes: reg1-reg2 sets flags in CPSR accord
    -or-
 CMP reg, #immediate ---> reg - #immediate, sets CPSR flags as accordingly
 
+R4=5, R5=5
+CMP R4,R5    ALU:5-5, sets flags
+                        N:0 Z:1 
+                        C:1 V:1 (???)
+
 */
