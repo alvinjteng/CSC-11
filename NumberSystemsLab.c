@@ -9,30 +9,6 @@ using namespace std;
  * 2. Prompt user a new base (2 < x < 36) to convert received number into the new base.
  * 3. Construct a string of digits that represents the user's new base.
  * 4. Output the constructed string.
- * C
- * D
- * E
- * F
- * G
- * H
- * I
- * J
- * K
- * L
- * M
- * N
- * O
- * P
- * Q
- * R
- * S
- * T
- * U
- * V
- * W
- * X
- * Y
- * Z
  */
 int main() {
     int x, y, mod;
