@@ -31,5 +31,10 @@ reg2= *reg1;
 | add r0,r1,r2                                                         |
 | add r3,r0,r5                                                         |
 \----------------------------------------------------------------------/
-*/
 
+                    Conditional Execution
+CMP reg1,reg2  ----> ALU does behind scenes: reg1-reg2 sets flags in CPSR accordingly
+   -or-
+CMP reg, #immediate ---> reg - #immediate, sets CPSR flags as accordingly
+
+*/
