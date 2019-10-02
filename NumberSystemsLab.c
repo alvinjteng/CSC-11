@@ -1,7 +1,5 @@
 #include <cstdio>
 
-using namespace std;
-
 /*
  * Use printf and scanf
  * Use division algorithm to convert base10 and any other number base:
@@ -12,16 +10,15 @@ using namespace std;
  */
 int main() {
     int x, y, mod;
-    char *result = "0";
-    char *temp = "0";
+    //char conv[25] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     
     printf("Enter an integer: ");
     scanf("%d", &x); // User's number is stored into x.
     
-    printf("Convert %d to base: ", x);
+    printf("Convert %d to base? ", x);
     scanf("%d", &y); // User's base is stored into y.
-    while ((y<2) || (y>35)) { // Looping until the value of y is between 2 and 35.
-        printf("You may only choose a number between 2 and 35 \n Choose another number to convert %d to base: ", x);
+    while ((y<2) || (y>=35)) { // Looping until the value of y is between 2 and 35.
+        printf("You may only choose a number between 2 and 35 \nChoose another number to convert %d to base: ", x);
         scanf("%d", &y);
     }
     
@@ -36,12 +33,10 @@ int main() {
     
     while (x>y) {
         mod = x%y;
-        x = (mod-x)/y;
-        temp = mod;
-        result = temp + result;
+        x = (x-mod)/y;
+       // temp = mod;
+       // result = temp + result;
     }
     
     return 0;
 }
-
-
