@@ -17,7 +17,7 @@ int main() {
     
     printf("Convert %d to base? ", x);
     scanf("%d", &y); // User's base is stored into y.
-    while ((y<2) || (y>=35)) { // Looping until the value of y is between 2 and 35.
+    while ((y<2) || (y>35)) { // Looping until the value of y is between 2 and 35.
         printf("You may only choose a number between 2 and 35 \nChoose another number to convert %d to base: ", x);
         scanf("%d", &y);
     }
