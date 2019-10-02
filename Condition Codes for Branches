@@ -1,0 +1,46 @@
+cmp r0, #0                      if(r0==0)
+bleq my_fun                       my_fun();
+blne my_other_fun               else 
+                                  my_other_fun();
+                                  
+model #1 for funtion that call functions within its function body.
+your_function:
+              push {lr}
+              
+              your function's code
+              
+              pop {pc}
+              
+model #2 for simple functions without function calls inside function body.
+your_funtion:
+             your function's code
+             
+             mov pc,lr
+             
+b <--- branch (jump, goto, without returning to next instruction)
+bl <--- branch with link - function calls (modifies LR, LR=PC+4)       
+
+int my_fun(int r0)
+{
+  return r0+1;
+}
+
+int my_other_fun(int r0)
+{
+  return r0%2;
+}
+r0 = 01110011
+r1 = 00111001 (shift right one bit)
+r1 = 01110010 (shift left one bit)
+
+mov reg_d, reg_s, LSL#n (# of bits)
+(my_other_fun from above)
+my_other_fun:
+            mov r1,r0,LSR#1
+            mov r1,r1,LSL#1
+            sub r0,r0,r1
+            mov pc,lr
+
+my_fun:
+      add r0,r0,#1
+      mov pc,lr
