@@ -1,1 +1,27 @@
+While Loop in C++:
+int r0=0;
+int r1=1;
+while (r1 <= 10) {
+  r0=r0+r1;
+  r1=r1+1;
+}
 
+While Loop in Assembly:
+expr = operand1 relational operator operand2
+while_expr:
+          cmp operand1, operand2
+          b{condition code must inverse of the relational op} end_while_expr
+          
+          your loop body code here
+          
+          b while_expr
+         
+mov r0, #0
+mov r1, #1
+while_r1_le_10:
+              cmp r1, #10
+              bgt end_while_r1_le_10
+              add r0,r0,r1
+              add r1,#1
+              b while_r1_le_10
+while_r1_le_10
