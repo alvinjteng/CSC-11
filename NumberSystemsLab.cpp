@@ -9,16 +9,17 @@
  * 4. Output the constructed string.
  */
 int main() {
-    int x, y, mod;
-    //char conv[25] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    int x, y, z = 0;
+    char output[32];
+    
     
     printf("Enter an integer: ");
     scanf("%d", &x); // User's number is stored into x.
     
     printf("Convert %d to base? ", x);
     scanf("%d", &y); // User's base is stored into y.
-    while ((y<2) || (y>35)) { // Looping until the value of y is between 2 and 35.
-        printf("You may only choose a number between 2 and 35 \nChoose another number to convert %d to base: ", x);
+    while ((y<2) || (y>36)) { // Looping until the value of y is between 2 and 36.
+        printf("You may only choose a number between 2 and 36 \nChoose another number to convert %d to base: ", x);
         scanf("%d", &y);
     }
     
@@ -31,11 +32,19 @@ int main() {
      * if it isn't, take that number convert to letter if needed and add to string
      */
     
-    while (x>y) {
-        mod = x%y;
-        x = (x-mod)/y;
-       // temp = mod;
-       // result = temp + result;
+    while (x>0) {
+        int remainder = x%y;
+        if (remainder < 10) {
+            output[z]= '0' + digit;
+        } else {
+            output[z] = 'A' + (digit - 10);
+        }
+        z++;
+        x/=base;
+    }
+    printf("Output: ");
+    for (int i = z-1; i >= 0; i--) {
+        printf("%c", z[i]);
     }
     
     return 0;
