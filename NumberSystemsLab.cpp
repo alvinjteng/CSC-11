@@ -1,3 +1,4 @@
+
 #include <cstdio>
 
 /*
@@ -24,7 +25,7 @@ int main() {
     }
     
     /* loop?
-     * userNumber(x) % userBase(y) = mod 
+     * userNumber(x) % userBase(y) = mod
      * take the modulus; if mod is > 9 then change mod to assigned letter
      * Store mod into a string
      * Check if userBase is still less than userNewNum
@@ -35,17 +36,18 @@ int main() {
     while (x>0) {
         int remainder = x%y;
         if (remainder < 10) {
-            output[z]= '0' + digit;
+            output[z]= '0' + remainder;
         } else {
-            output[z] = 'A' + (digit - 10);
+            output[z] = 'A' + (remainder - 10);
         }
         z++;
-        x/=base;
+        x/=y;
     }
     printf("Output: ");
     for (int i = z-1; i >= 0; i--) {
-        printf("%c", z[i]);
+        printf("%c", output[i]);
     }
+    printf ("\n");
     
     return 0;
 }
