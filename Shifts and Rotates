@@ -1,18 +1,35 @@
 LSL_n - logical shift left of n-bits, same as multiplying 2^n.
 LSR_n - logical shift right of n-bits, same as divinding by 2^n.
-    / 128 |  64 |  32 |  16 |  8  |  4  |  2  |  1  \
-    |-----------------------------------------------|
-    |  0  |  0  |  1  |  0  |  1  |  1  |  1  |  0  | = 46
-    |-----------------------------------------------|
-LSL1|  0  |  1  |  0  |  1  |  1  |  1  |  0  |  0  | = 92
-    |-----------------------------------------------|
-LSR2|  0  |  0  |  0  |  1  |  0  |  1  |  1  |  1  | = 23
-    \-----------------------------------------------/
+
+     /-----------------------------------------------\
+     | 128 |  64 |  32 |  16 |  8  |  4  |  2  |  1  |
+     |-----------------------------------------------|
+     |  0  |  0  |  1  |  0  |  1  |  1  |  1  |  0  | = 46
+     |-----------------------------------------------|
+LSL1 |  0  |  1  |  0  |  1  |  1  |  1  |  0  |  0  | = 92
+     |-----------------------------------------------|
+LSR2 |  0  |  0  |  0  |  1  |  0  |  1  |  1  |  1  | = 23
+     \-----------------------------------------------/
 assume r0 holds 47_10
 mov r1, r0, LSL #2 //move destination, source, shifter
 r0 = 47
 r1 = 188
 
-add r2,r0,r0LSL#4
-    
-ASR/ASL* - arithmatic shift right/arithmatic shift left
+add r2,r0,r0,LSL#4 // r2 = r0 + r0*16
+
+mov r0, #117                }
+ldr r1, =#0xFFFFFFFF        } same as mov r2, #117
+eor r2,r0,r1                } mvn r2, #117
+add r2, #1                  }
+
+ASL* - arithmatic shift left: same as LSL.
+ASR - arithmatic shift right: signed division by 2^n (preserves sign bit)
+
+r0 = 10
+divide r0 by 5?
+rsb r1, r0, r0, lsr#2?
+10-2=8
+
+ROR - Rotate Right
+ROL - Rotate Left
+
