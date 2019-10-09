@@ -1,0 +1,18 @@
+LSL_n - logical shift left of n-bits, same as multiplying 2^n.
+LSR_n - logical shift right of n-bits, same as divinding by 2^n.
+    / 128 |  64 |  32 |  16 |  8  |  4  |  2  |  1  \
+    |-----------------------------------------------|
+    |  0  |  0  |  1  |  0  |  1  |  1  |  1  |  0  | = 46
+    |-----------------------------------------------|
+LSL1|  0  |  1  |  0  |  1  |  1  |  1  |  0  |  0  | = 92
+    |-----------------------------------------------|
+LSR2|  0  |  0  |  0  |  1  |  0  |  1  |  1  |  1  | = 23
+    \-----------------------------------------------/
+assume r0 holds 47_10
+mov r1, r0, LSL #2 //move destination, source, shifter
+r0 = 47
+r1 = 188
+
+add r2,r0,r0LSL#4
+    
+ASR/ASL* - arithmatic shift right/arithmatic shift left
