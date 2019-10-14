@@ -1,0 +1,18 @@
+label_function_name:
+  push {lr, registers to save}
+  function code body
+  move r0, #?? <--- return value if needed (not needed if void function)
+  pop {pc,...registers that were saved}
+
+simple functions (no function callls, no use of regs r4-r14)
+label_function:
+  function code body
+  mov pc, lr
+
+.section .text
+.global rol
+rol:
+  rsb r1,r1, #32
+  mov r0,r0, ror r1
+  mov pc, lr
+  
