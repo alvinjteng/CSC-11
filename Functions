@@ -1,0 +1,17 @@
+more than 4 parameters
+SEGMENTATION FAULT -> dereferencing null pointers
+                   -> many causes, most common with reference/deref pointers to adress that are invalid
+
+push {lr}
+ldr r0, = scan_s
+ldr r1, = var1
+ldr r2, = var2
+ldr r3, = var3
+ldr r4, = var4
+push {r4}
+bl scanf
+pop {r4}  -OR- add SP, #4 <- sets SP back to its value before pushing r4
+
+
+
+"local" variables w/ functions w/ ASM
