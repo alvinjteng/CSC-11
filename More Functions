@@ -1,0 +1,40 @@
+more than 4 parameters
+SEGMENTATION FAULT -> dereferencing null pointers
+                   -> many causes, most common with reference/deref pointers to adress that are invalid
+
+push {lr}
+ldr r0, = scan_s
+ldr r1, = var1
+ldr r2, = var2
+ldr r3, = var3
+ldr r4, = var4
+push {r4}
+bl scanf
+pop {r4}  -OR- add SP, #4 <- sets SP back to its value before pushing r4
+
+
+
+"local" variables w/ functions w/ ASM
+your_function:
+  push {r11, lr}
+  sub r11,sp,#4
+  sub sp, r11, #x where x is the number of bytes we need for the local variable
+  .
+  .
+  .
+  your function body
+  .
+  .
+  add sp, r11, #4
+  pop {r11, pc}
+  
+get_integer: 
+  push {r11,lr}
+  sub r11, sp, #4 // allocate 4 bytes for 32-bit integer
+  ldr r0, =scan_s
+  mov r1, r11
+  bl scanf
+  ldr r0, [r11]
+  add sp, r11, #4
+  pop {r11, pc}
+scan_s: .acsciz "%d"
