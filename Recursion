@@ -1,1 +1,26 @@
+Recursion- when a function calls itself
+1. base case/ exit condition - the case/condition that terminates recursive function (loop_
+2. recursive function call- the code in which the function is called by itself with a new parameter arguments.
 
+int factorial(int n)
+{
+  if (n <0) return n;
+  if (n==0 || n ==1) 
+    return 1;
+  return n*factorial (n-1);
+}
+
+factorial: 
+  push {lr}
+  cmp r0, #0
+  blt fact_done2
+  cmp r0, #1
+  ble fact_done
+  push {r0}
+  sub r0, r0,#1
+  bl factorial
+  pop{r1}
+  mul r0,r0, r1
+  pop {pc}
+  fact_done: mov r0, #1
+  fact_done2: pop {pc}
