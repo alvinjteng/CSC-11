@@ -1,0 +1,61 @@
+.section .data <- initialized data that is included in the executable binary file image
+vs.
+.section .bss <- uninitialized data that is not part of the binary file image.
+Which one to use? 
+Large arrays, you would want to use .section .bss
+
+gdb --nx -tui (executable name)
+
+Memory goes:
+^
+| 660
+| 65c
+| |||
+| 604
+| 600
+
+Assembly Arrays:
+.global main
+.text
+main:
+  mov pc, lr
+  
+.align 4
+.data
+a: .skip 100000
+
+
+Assembly .section .bss Arrays:
+.global main
+
+.align 4
+.text
+main:
+  push {r11,lr}
+  move r1, #-1 // allows us to see our array when using hexdump
+  push {r1}
+
+  ldr r0, =#100
+  sub sp, sp, r0 // ******************
+  add r11, sp, #4
+  
+  push {r1}
+  // our code here
+  // store 100 in array[0]
+  //str r0, [r11]
+  // initialize array like:
+  // for(int i = 0; i<25; i++) a[i]=i;
+  mov r0, #0
+  str r0, [r0]
+  pop {r1}
+  
+  add sp, r11, r0 // *****************
+  
+  pop {r1}
+  pop {r11, pc}
+
+  add sp, r11, #4
+  pop {r11, pc}
+  
+  
+int a2[3][2] = {{1,2},{3,4},{5,6}};
